@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Reloj</title>
+		<meta charset ="UTF-8">
+		<style type="text/css">
+		<script src="p5.js"></script>
+		<script src="p5.sound.js"></script>
+		<script src="sketch.js"></script>
+					
+			#contenedor_reloj{
+					background-color: #00FF00;
+					margin: 1rem;
+					padding: 1rem;
+					border: 0 solid #cccccc;
+					  /* IMPORTANTE */
+					text-align: center;
+				}
+			#contenedor_titulo{
+					background-color:#00FF00;
+					color:#00AA00;
+					width: auto;
+					height:auto;
+					  /* IMPORTANTE */
+					text-align: center;
+				}
+			#contenedor_hora{
+					text-align: center;
+					width: auto;
+					height:auto;
+					background-color:#00EE00;
+					color:orange;
+					border:solid #00DD00 10px;
+					margin: 40px;
+					padding:50px;
+					text-align:center;
+					font-size:200px;	
+				}
+				
+			p{
+					text-align: center;
+			}
+			body{
+				background-color: #00FF00;
+			}
+		</style>
+		
+		<script>
+			function f_hora(){
+				var hoy = new Date();
+				var h = hoy.getHours();
+				var m = hoy.getMinutes();
+				var s = hoy.getSeconds();
+				document.getElementById('contenedor_hora').innerHTML = h+":"+m+":"+s;
+				setInterval ( f_hora , 1000);
+			}
+		
+		
+		function setup() {
+		createCanvas(500, 300);
+		}
+
+		function draw() {
+		background(155,0,178);
+		ellipse(mouseX,mouseY,mouseX,mouseY);
+		fill(mouseX,mouseY,mouseX);
+		}
+		</script>
+		
+	</head>
+
+	<body onload=f_hora() >
+			
+		<p> I.E.S. María Moliner </p>
+		<div id="contenedor_reloj">	
+			<h1 id="contenedor_titulo"> Reloj TIC-2</h1>
+			<button id="contenedor_hora" onclick="f_hora()">actualizar la hora</button>
+		</div>
+	</body>
+	
+</html>
